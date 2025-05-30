@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QR_Checking_App.AuthPage" BackgroundImageSource="Resources/Drawable/back1.png" BackgroundImage="Resources/Drawable/back1.png">
+
+    <StackLayout x:Name ="main_stack" VerticalOptions="CenterAndExpand" Margin="25">
+        <Image Source="Resources/Drawable/logo.png" VerticalOptions="Start" HorizontalOptions="Center" Margin="20" HeightRequest="150" WidthRequest="150" />
+        <Image x:Name="ConnError" Source="Resources/Drawable/connection_error_white.png" VerticalOptions="Start" HorizontalOptions="Center" Margin="20" HeightRequest="90" WidthRequest="90" IsVisible="false" />
+        <Frame x:Name="main_frame" BackgroundColor="White" CornerRadius="10" HeightRequest="350" WidthRequest="300">
+            <StackLayout BackgroundColor="White" Padding="20">
+                <Label x:Name="AuthLabel" Text="Авторизация" TextColor="Black" FontSize="32" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 20" />
+                <Entry x:Name="_Login" Placeholder="Введите логин" PlaceholderColor="Gray" TextColor="Black" Margin="0, 0, 0, 10" />
+                <Entry x:Name="_Password" Placeholder="Введите пароль" PlaceholderColor="Gray" TextColor="Black" IsPassword="True" Margin="0, 0, 0, 20" />
+                <ActivityIndicator x:Name="auth_loadingIndicator" IsVisible="False" IsRunning="False" Color="#021D30"/>
+                <Button x:Name="auth_button" Text="Войти" FontSize="18" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="auth_button_Clicked" />
+                <Label x:Name="fp_Label" Text="Забыли пароль ?" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="forget_password_label" Tapped="forget_password_label_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <ActivityIndicator x:Name="conn_check_indicator" IsVisible="False" IsRunning="False" Color="#021D30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Frame>
+        <Frame x:Name="reset_account_frame" BackgroundColor="White" CornerRadius="10" HeightRequest="350" WidthRequest="300">
+            <StackLayout BackgroundColor="White" Padding="20">
+                <Label Text="Восстановить аккаунт" TextColor="Black" FontSize="32" HorizontalOptions="CenterAndExpand" Margin="10, 0, 5, 20" />
+                <Entry x:Name="_Email" Placeholder="Введите ваш Email" PlaceholderColor="Gray" TextColor="Black" Margin="0, 10, 0, 10" MaxLength="100"/>
+                <Button x:Name="_SendPassword" Text="Отправить" FontSize="18" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="_SendPassword_Clicked" />
+                <ActivityIndicator x:Name="sendpassword_loadingIndicator" IsVisible="False" IsRunning="False" Color="#021D30" />
+                <Label Text="Отмена" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="back_label" Tapped="back_label_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    
+</ContentPage>

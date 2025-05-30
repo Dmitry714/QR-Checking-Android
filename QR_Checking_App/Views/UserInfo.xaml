@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QR_Checking_App.UserInfo">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="frame_controls" BackgroundColor="White" Padding="15">
+                <Label Text="Полное имя:" FontSize="24" TextColor="Black"/>
+                <Label x:Name="FIO" FontSize="20" TextColor="Gray" Margin="3"/>
+                <Label Text="Логин:" FontSize="24" TextColor="Black"/>
+                <Label x:Name="Login" FontSize="20" TextColor="Gray" Margin="3"/>
+                <Label Text="Email:" FontSize="24" TextColor="Black"/>
+                <Label x:Name="Email" FontSize="20" TextColor="Gray" Margin="3"/>
+                <Label Text="Номер телефона:" FontSize="24" TextColor="Black"/>
+                <Label x:Name="Phone_Number" FontSize="20" TextColor="Gray" Margin="3"/>
+                <Label Text="Модель телефона:" FontSize="24" TextColor="Black"/>
+                <Label x:Name="Phone_Model" FontSize="20" TextColor="Gray" Margin="3"/>
+                <Label Text="Группа:" FontSize="24" TextColor="Black"/>
+                <Label x:Name="Group_Number" FontSize="20" TextColor="Gray" Margin="3"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

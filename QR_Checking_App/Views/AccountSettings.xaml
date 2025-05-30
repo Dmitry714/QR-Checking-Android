@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QR_Checking_App.AccountSettings" BackgroundColor="White">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="frame_controls" BackgroundColor="White" Padding="15">
+                <Label Text="Email" FontSize="20" TextColor="Black"/>
+                <Entry x:Name="_Email" PlaceholderColor="Gray" Placeholder="Введите email" TextColor="Black" MaxLength="100"/>
+                <Label Text="Логин" FontSize="20" TextColor="Black"/>
+                <Entry x:Name="_Login" PlaceholderColor="Gray" Placeholder="Введите логин" TextColor="Black" MaxLength="20"/>
+                <Label Text="Пароль" FontSize="20" TextColor="Black"/>
+                <Entry x:Name="_Password" PlaceholderColor="Gray" Placeholder="Введите пароль" TextColor="Black" MaxLength="20"/>
+                <ActivityIndicator x:Name="save_loadingIndicator" IsVisible="False" IsRunning="False" Color="#021D30" />
+                <Button x:Name="saveButton" Text="Сохранить" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="7" Clicked="saveButton_Clicked"/>
+                <Button x:Name="breakeConn" Text="Отключаемся блин" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="7" Clicked="breakeConn_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QR_Checking_App.MainPage" BackgroundColor="#021D30">
+
+    <ScrollView>
+        <StackLayout VerticalOptions="End" Margin="20">
+            <Image Source="Resources/Drawable/logo.png" VerticalOptions="End" HorizontalOptions="Center" Margin="-10"  HeightRequest="170" WidthRequest="170" />
+            <Label Text="Build 5.2023.4.10" TextColor="Gray" VerticalOptions="End" HorizontalOptions="Center" Margin="30" FontSize="14"/>
+            
+            <Frame x:Name="frame_controls" BackgroundColor="White" CornerRadius="10" HeightRequest="325" WidthRequest="300">
+                <StackLayout BackgroundColor="White" Padding="-10">
+                    <Label x:Name="greetings" Text="Здравствуйте, User!" FontSize="32" Margin="10" VerticalOptions="Start" TextColor="Gray"/>
+                    <Button x:Name="QRbutton" Text="Сканировать QR-код" FontSize="20" BackgroundColor="#038ECA" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Clicked="Button_Clicked">
+                        <Button.ImageSource>
+                            <FileImageSource File="Resources/Drawable/scan_icon.png"/>
+                        </Button.ImageSource>
+                    </Button>
+                    <Button x:Name="AccSettbutton" Text="Настройки аккаунта" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="AccSettbutton_Clicked" Margin="2"/>
+                    <Button x:Name="TechSupportbutton" Text="Тех. поддержка" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2" Clicked="TechSupportbutton_Clicked"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="frame_account" BackgroundColor="White" CornerRadius="10" HeightRequest="325" WidthRequest="300">
+                <StackLayout BackgroundColor="White" Padding="-10">
+                    <Label Text="Мой профиль" FontSize="30" Margin="6" VerticalOptions="Start" TextColor="Gray"/>
+
+                    <Button x:Name="ProfileInfoButton" Text="Данные профиля" FontSize="16" BackgroundColor="#038ECA" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="ProfileInfoButton_Clicked" Margin="2,5,2,0">
+                        <Button.ImageSource>
+                            <FileImageSource File="Resources/Drawable/user.png"/>
+                        </Button.ImageSource>
+                    </Button>
+                    <Button x:Name="LoginChangeButton" Text="Сменить логин" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="LoginChangeButton_Clicked" Margin="2">
+                        <Button.ImageSource>
+                            <FileImageSource File="Resources/Drawable/login.png"/>
+                        </Button.ImageSource>
+                    </Button>
+                    <Button x:Name="PassChangeButton" Text="Сменить пароль" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2" Clicked="PassChangeButton_Clicked">
+                        <Button.ImageSource>
+                            <FileImageSource File="Resources/Drawable/lock.png"/>
+                        </Button.ImageSource>
+                    </Button>
+                    <Button x:Name="EmailChangeButton" Text="Сменить Email" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2" Clicked="EmailChangeButton_Clicked">
+                        <Button.ImageSource>
+                            <FileImageSource File="Resources/Drawable/email.png"/>
+                        </Button.ImageSource>
+                    </Button>
+
+                    <Label Text="Назад" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="back_label" Tapped="back_label_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="frame_changeLogin" BackgroundColor="White" CornerRadius="10" HeightRequest="325" WidthRequest="300">
+                <StackLayout BackgroundColor="White" Padding="-10">
+                    <Label Text="Изменить логин" FontSize="32" Margin="10" VerticalOptions="Start" TextColor="Gray"/>
+
+                    <Entry x:Name="LoginEntry" MaxLength="20" TextChanged="LoginEntry_TextChanged" Placeholder="Введите логин" PlaceholderColor="Gray" TextColor="Black" Margin="5, 20, 5, 5" />
+                    <Entry x:Name="AcceptPassEntryFL" TextChanged="PasswordEntry_TextChanged" MaxLength="20" IsPassword="True" Placeholder="Введите пароль" PlaceholderColor="Gray" TextColor="Black" Margin="5, 0, 5, 5" />
+                    <Button x:Name="LoginChangeAcceptButton" Text="Сохранить" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2,10,2,0" Clicked="LoginChangeAcceptButton_Clicked"/>
+
+                    <Label Text="Назад" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 20, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="backToAccountFrameFLF_label" Tapped="backToAccountFrameFLF_label_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="frame_changePassword" BackgroundColor="White" CornerRadius="10" HeightRequest="325" WidthRequest="300">
+                <StackLayout BackgroundColor="White" Padding="-10">
+                    <Label Text="Изменить пароль" FontSize="32" Margin="10" VerticalOptions="Start" TextColor="Gray"/>
+
+                    <Entry x:Name="OldPasswordEntry" MaxLength="20" TextChanged="PasswordEntry_TextChanged" IsPassword="True" Placeholder="Введите пароль" PlaceholderColor="Gray" TextColor="Black" Margin="5, 0, 5, 5" />
+                    <Entry x:Name="NewPasswordEntry" MaxLength="20" TextChanged="PasswordEntry_TextChanged" IsPassword="True" Placeholder="Введите новый пароль" PlaceholderColor="Gray" TextColor="Black" Margin="5, 0, 5, 5" />
+                    <Entry x:Name="RepeatNewPasswordEntry" MaxLength="20" TextChanged="PasswordEntry_TextChanged" IsPassword="True" Placeholder="Повторите пароль" PlaceholderColor="Gray" TextColor="Black" Margin="5, 0, 5, 5" />
+                    <Button x:Name="PasswordChangeAcceptButton" Text="Сохранить" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2,10,2,0" Clicked="PasswordChangeAcceptButton_Clicked"/>
+
+                    <Label Text="Назад" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="backToAccountFrameFPF_label" Tapped="backToAccountFrameFPF_label_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="frame_changeEmail" BackgroundColor="White" CornerRadius="10" HeightRequest="325" WidthRequest="300">
+                <StackLayout BackgroundColor="White" Padding="-10">
+                    <Label Text="Изменить Email" FontSize="32" Margin="10" VerticalOptions="Start" TextColor="Gray"/>
+
+                    <Entry x:Name="EmailEntry" MaxLength="100" Placeholder="Введите Email" PlaceholderColor="Gray" TextColor="Black" Margin="5, 20, 5, 5" />
+                    <Entry x:Name="AcceptPassEntryFE" MaxLength="20" TextChanged="PasswordEntry_TextChanged" IsPassword="True" Placeholder="Введите пароль" PlaceholderColor="Gray" TextColor="Black" Margin="5, 0, 5, 5" />
+                    <Button x:Name="EmailChangeAcceptButton" Text="Продолжить" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2,10,2,0" Clicked="EmailChangeAcceptButton_Clicked"/>
+
+                    <Label Text="Назад" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 20, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="backToAccountFrameFEF_label" Tapped="backToAccountFrameFEF_label_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="frame_acceptCode" BackgroundColor="White" CornerRadius="10" HeightRequest="325" WidthRequest="300">
+                <StackLayout BackgroundColor="White" Padding="-10">
+                    <Label Text="Код отправлен на ваш Email" FontSize="32" Margin="10" VerticalOptions="Start" TextColor="Gray"/>
+
+                    <Entry x:Name="CodeEntry" MaxLength="8" Placeholder="Введите код" PlaceholderColor="Gray" TextColor="Black" Margin="5, 20, 5, 5" />
+                    <Button x:Name="AcceptCodeButton" Text="Подтвердить" FontSize="16" BackgroundColor="#196398" TextColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="2,10,2,0" Clicked="AcceptCodeButton_Clicked"/>
+
+                    <Label Text="Отмена" FontSize="16" TextColor="Gray" HorizontalOptions="CenterAndExpand" Margin="0, 20, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="backToEmailFrameFCF_label" Tapped="backToEmailFrameFCF_label_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="QR_Checking_App.QR_SCANNER">
+    <Grid>
+        <Grid x:Name="MainGrid">
+            <zxing:ZXingScannerView x:Name="scannerView" OnScanResult="OnScanResult"/>
+            <Label x:Name ="MessageLable" Text="Наведите камеру на QR-код" TextColor="white" FontSize="18" Margin="45" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Frame BackgroundColor="Transparent" BorderColor="White"  WidthRequest="200" HeightRequest="200" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Отмена" VerticalOptions="EndAndExpand" Margin="40" HorizontalOptions="CenterAndExpand" HeightRequest="50" WidthRequest="130" FontSize="18" BackgroundColor="#196398" TextColor="White" CornerRadius="5" Clicked="Button_Clicked"/>
+        </Grid>
+        <Grid x:Name="LoadGrid" BackgroundColor="White" IsVisible="False">
+            <ActivityIndicator x:Name="auth_loadingIndicator" IsVisible="true" IsRunning="True" Color="#021D30" VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </Grid>
+</ContentPage>
